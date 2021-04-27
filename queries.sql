@@ -48,5 +48,6 @@ CREATE TABLE "Employees" (
  "JobPosition"    TEXT,
  "PhoneExtension" INT,
  "IsPartTime"     BOOLEAN,
+ "ParkingSpot"    VARCHAR(10),
  "Id"             SERIAL PRIMARY KEY
  );
