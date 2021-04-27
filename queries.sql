@@ -36,3 +36,17 @@ INSERT INTO "Employees" ("FullName", "Salary", "JobPosition", "PhoneExtension", 
 UPDATE "Employees" SET "Salary" = 500  WHERE "JobPosition" = 'Cook';
 DELETE FROM "Employees" WHERE "FullName" = 'Lazy Larry';
 ALTER TABLE "Employees" ADD COLUMN "ParkingSpot" VARCHAR(10);
+
+
+Adventure Mode
+
+createdb CompanyDatabase
+pgcli CompanyDatabase
+CREATE TABLE "Employees" (
+ "FullName"       TEXT NOT NULL,
+ "Salary"         INT,
+ "JobPosition"    TEXT,
+ "PhoneExtension" INT,
+ "IsPartTime"     BOOLEAN,
+ "Id"             SERIAL PRIMARY KEY
+ );
