@@ -28,3 +28,11 @@ INSERT INTO "Employees" ("FullName", "Salary", "JobPosition", "PhoneExtension", 
    VALUES ('Francesco Melzi', 600, 'Cook', 1491, True);
 INSERT INTO "Employees" ("FullName", "Salary", "JobPosition", "PhoneExtension", "IsPartTime")
    VALUES ('Leonardo da Vinci', 1000, 'Artist', 1452, False);
+
+SELECT * FROM "Employees";
+SELECT "FullName", "PhoneExtension" FROM "Employees" WHERE "IsPartTime" = False;
+INSERT INTO "Employees" ("FullName", "Salary", "JobPosition", "PhoneExtension", "IsPartTime")
+ VALUES ('Dexter Charming', 450, 'Software Developer', 1234, True);
+UPDATE "Employees" SET "Salary" = 500  WHERE "JobPosition" = 'Cook';
+DELETE FROM "Employees" WHERE "FullName" = 'Lazy Larry';
+ALTER TABLE "Employees" ADD COLUMN "ParkingSpot" VARCHAR(10);
