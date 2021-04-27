@@ -79,3 +79,4 @@ UPDATE "Employees" SET "DepartmentId" = 3 Where "Id" in (1,2,3,5,8,9);
 UPDATE "Employees" SET "DepartmentId" = 5  Where "Id" in (4);
 UPDATE "Employees" SET "DepartmentId" = 1  Where "Id" in (6, 7);
 UPDATE "Employees" SET "DepartmentId" = 2  Where "Id" in (10);
+SELECT * FROM "Employees" JOIN "Departments" ON "Employees"."DepartmentId" = "Departments"."ID";
