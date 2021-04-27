@@ -48,6 +48,6 @@ CREATE TABLE "Employees" (
  "JobPosition"    TEXT,
  "PhoneExtension" INT,
  "IsPartTime"     BOOLEAN,
- "ParkingSpot"    VARCHAR(10),
- "Id"             SERIAL PRIMARY KEY
+ "ParkingSpot"    VARCHAR(10)
  );
+ ALTER TABLE "Employees" ADD COLUMN "Id" SERIAL NUMBER KEY;
