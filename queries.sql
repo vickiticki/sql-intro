@@ -50,4 +50,4 @@ CREATE TABLE "Employees" (
  "IsPartTime"     BOOLEAN,
  "ParkingSpot"    VARCHAR(10)
  );
- ALTER TABLE "Employees" ADD COLUMN "Id" SERIAL NUMBER KEY;
+ ALTER TABLE "Employees" ADD COLUMN "Id" SERIAL PRIMARY KEY;
