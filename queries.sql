@@ -129,4 +129,23 @@ INSERT INTO "Products" ("Price", "Name", "Description", "QuantityInStock")
  VALUES (12.45, 'Widget', 'The Original Widget', 100);
 INSERT INTO "Products" ("Price", "Name", "Description", "QuantityInStock")
  VALUES (99.99, 'Flowbee', 'Perfect for haircuts', 3);
- 
+
+INSERT INTO "ProductOrders" ("ProductId", "OrderId", "OrderQuantity")
+ VALUES (1, 1, 3);
+INSERT INTO "ProductOrders" ("ProductId", "OrderId", "OrderQuantity")
+ VALUES (2, 1, 2);
+
+SELECT * FROM "Employees" JOIN "Departments" ON "Employees"."DepartmentId" = "Departments"."Id" 
+ WHERE "Departments"."Building" = 'North Side';
+SELECT * FROM "Employees" JOIN "Departments" ON "Employees"."DepartmentId" = "Departments"."Id" 
+ WHERE "Departments"."Building" = 'East Side';
+SELECT * FROM "Employees" JOIN "Departments" ON "Employees"."DepartmentId" = "Departments"."Id" 
+ WHERE "Departments"."Building" = 'Main';
+
+SELECT * FROM "Orders" JOIN "ProductOrders" ON "ProductOrders"."ProductId" = 2;
+
+I can't get the order quantity on its own. This is what I have so far:
+SELECT * FROM "Orders"
+     JOIN "ProductOrders" ON "ProductOrders"."OrderId" = "Orders"."Id"
+     JOIN "Products" ON "Products"."Id" = "ProductOrders"."ProductId"
+     WHERE "Products"."Name" = 'Flowbee'
