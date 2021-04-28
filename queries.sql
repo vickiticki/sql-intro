@@ -80,3 +80,53 @@ UPDATE "Employees" SET "DepartmentId" = 5  Where "Id" in (4);
 UPDATE "Employees" SET "DepartmentId" = 1  Where "Id" in (6, 7);
 UPDATE "Employees" SET "DepartmentId" = 2  Where "Id" in (10);
 SELECT * FROM "Employees" JOIN "Departments" ON "Employees"."DepartmentId" = "Departments"."ID";
+
+
+"Foreign Keys" Assignment
+CREATE TABLE "Departments" (
+  "Id"             SERIAL PRIMARY KEY,
+  "DepartmentName" TEXT,
+  "Building"       TEXT
+  );
+
+ALTER TABLE "Employees" ADD COLUMN "DepartmentId" INTEGER NULL REFERENCES "Departments" ("Id");
+
+CREATE TABLE "Products" (
+ "Id"              SERIAL PRIMARY KEY,
+ "Price"           FLOAT,
+ "Name"            TEXT,
+ "Description"     TEXT,
+ "QuantityInStock" INT
+ );
+
+CREATE TABLE "Orders" (
+ "Id"          SERIAL PRIMARY KEY,
+ "OrderNumber" TEXT,
+ "DatePlaced"  DATE,
+ "Email"       TEXT
+ );
+
+CREATE TABLE "ProductOrders" (
+ "Id"          SERIAL PRIMARY KEY,
+ "ProductId"   INTEGER REFERENCES "Products" ("Id"),
+ "OrderId"     INTEGER REFERENCES "Orders" ("Id"),
+ "OrderQuantity" INT
+ );
+
+INSERT INTO "Departments" ("DepartmentName", "Building")
+ VALUES ('Development', 'Main');
+INSERT INTO "Departments" ("DepartmentName", "Building")
+ VALUES ('Marketing', 'North');
+
+INSERT INTO "Employees" ("FullName", "Salary", "JobPosition", "PhoneExtension", "IsPartTime", "DepartmentId")
+ VALUES ('Tim Smith', 40000, 'Programmer', 123, false, 1);
+INSERT INTO "Employees" ("FullName", "Salary", "JobPosition", "PhoneExtension", "IsPartTime", "DepartmentId")
+  VALUES ('Barbara Ramsery', 80000, 'Manager', 234, false, 1);
+INSERT INTO "Employees" ("FullName", "Salary", "JobPosition", "PhoneExtension", "IsPartTime", "DepartmentId")
+  VALUES ('Tom Jones', 32000, 'Admin', 456, true, 2);
+
+INSERT INTO "Products" ("Price", "Name", "Description", "QuantityInStock")
+ VALUES (12.45, 'Widget', 'The Original Widget', 100);
+INSERT INTO "Products" ("Price", "Name", "Description", "QuantityInStock")
+ VALUES (99.99, 'Flowbee', 'Perfect for haircuts', 3);
+ 
