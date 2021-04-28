@@ -144,8 +144,8 @@ SELECT * FROM "Employees" JOIN "Departments" ON "Employees"."DepartmentId" = "De
 
 SELECT * FROM "Orders" JOIN "ProductOrders" ON "ProductOrders"."ProductId" = 2;
 
-I can't get the order quantity on its own. This is what I have so far:
-SELECT * FROM "Orders"
-     JOIN "ProductOrders" ON "ProductOrders"."OrderId" = "Orders"."Id"
-     JOIN "Products" ON "Products"."Id" = "ProductOrders"."ProductId"
-     WHERE "Products"."Name" = 'Flowbee'
+SELECT "OrderQuantity" FROM "ProductOrders"
+ JOIN "Orders" ON "ProductOrders"."OrderId" = "Orders"."Id"
+ JOIN "Products" ON "ProductOrders"."ProductId" = "Products"."Id"
+ WHERE "Orders"."OrderNumber" = 'X529'
+ AND "Products"."Name" = 'Flowbee';
