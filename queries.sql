@@ -82,7 +82,11 @@ UPDATE "Employees" SET "DepartmentId" = 2  Where "Id" in (10);
 SELECT * FROM "Employees" JOIN "Departments" ON "Employees"."DepartmentId" = "Departments"."ID";
 
 
+
+
+
 "Foreign Keys" Assignment
+(I dropped the Departments table I made yesterday so I could start fresh)
 CREATE TABLE "Departments" (
   "Id"             SERIAL PRIMARY KEY,
   "DepartmentName" TEXT,
